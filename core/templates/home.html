@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Instalação e Execução Local</title>
+    <!-- Link para o Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .step {
+            margin-bottom: 20px;
+        }
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 50%;
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 20px;
+        }
+        .step-content {
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Como Instalar e Executar a Aplicação Localmente</h1>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="step">
+                    <div class="d-flex">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h5>Clonar o Repositório</h5>
+                            <p>Primeiro, clone o repositório do projeto utilizando o comando:</p>
+                            <pre><code>git clone https://github.com/seu-usuario/seu-repositorio.git</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="d-flex">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h5>Configurar o Ambiente Virtual</h5>
+                            <p>Depois de clonar o repositório, crie um ambiente virtual para isolar as dependências do projeto:</p>
+                            <pre><code>python -m venv venv</code></pre>
+                            <p>Ative o ambiente virtual:</p>
+                            <pre><code>venv\Scripts\activate  # No Windows</code></pre>
+                            <pre><code>source venv/bin/activate  # No Linux/Mac</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="d-flex">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h5>Instalar Dependências</h5>
+                            <p>Agora, instale todas as dependências necessárias para o projeto:</p>
+                            <pre><code>pip install -r requirements.txt</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="d-flex">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h5>Configurar o Banco de Dados</h5>
+                            <p>O projeto usa o banco de dados PostgreSQL. Crie um banco de dados no seu PostgreSQL e configure a conexão em <code>settings.py</code>.</p>
+                            <p>Depois disso, execute as migrações:</p>
+                            <pre><code>python manage.py migrate</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="d-flex">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h5>Criar Superusuário</h5>
+                            <p>Para acessar o painel administrativo do Django, crie um superusuário:</p>
+                            <pre><code>python manage.py createsuperuser</code></pre>
+                            <p>Forneça um nome de usuário, e-mail e senha para o superusuário.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="d-flex">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h5>Rodar o Servidor</h5>
+                            <p>Agora você pode rodar o servidor local do Django com o seguinte comando:</p>
+                            <pre><code>python manage.py runserver</code></pre>
+                            <p>O servidor estará disponível em <a href="http://127.0.0.1:8000" target="_blank">http://127.0.0.1:8000</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="d-flex">
+                        <div class="step-number">7</div>
+                        <div class="step-content">
+                            <h5>Acessar o Painel Administrativo</h5>
+                            <p>Para acessar o painel administrativo do Django, vá para:</p>
+                            <pre><code>http://127.0.0.1:8000/admin</code></pre>
+                            <p>Use o superusuário que você criou anteriormente para fazer login.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link para o Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

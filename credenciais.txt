@@ -1,0 +1,8 @@
+victor
+victorteodozio@hotmail.com
+Victo2025!
+
+
+
+
+ django-environ para carregar as variáveis de ambiente tanto no Django quanto no Docker
