@@ -5,6 +5,8 @@ from core import views
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from core.views import CustomLoginView  
+from rest_framework.authtoken.views import obtain_auth_token
 
 router = DefaultRouter()
 router.register(r'tecnologias', views.TecnologiaViewSet)
@@ -28,6 +30,7 @@ from rest_framework_simplejwt.views import (
 )
 
 urlpatterns = [
+    path("api/custom-login/", CustomLoginView.as_view(), name="custom_login"),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
@@ -35,4 +38,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+     path('api/token/', obtain_auth_token, name='token_obtain_pair'),
 ]

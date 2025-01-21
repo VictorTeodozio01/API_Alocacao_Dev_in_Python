@@ -1,6 +1,6 @@
 # API Em Python/Django
 
-## Primeiro, instale as dependências com o seguinte comando:
+## Primeiro, instale as dependências com o seguinte comando, caso não venha instalado:
 
 ```bash
 pip install django-environ
@@ -47,7 +47,7 @@ Use o super usuário que você criou anteriormente para fazer login.</br>
 ```json
 {
 "username": "victor",
-"password": "Victo2025!"
+"password": "Victor2025!"
 }
 ```
 #### Resposta:
@@ -58,6 +58,9 @@ Use o super usuário que você criou anteriormente para fazer login.</br>
 }
 
 ```
+
+obs: o "username": "victor" e o "password": "Victo2025!" e so um exemplo, pois o usuario sera  criado quando o comando python manage.py createsuperuser for executado e o nome de usuário, e-mail e senha tera que ser fornecido.
+
 #### 2. Enviar o token no header das requisições:
 
 Authorization: Bearer jwt_token_de_acesso

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework_simplejwt',
+    'rest_framework.authtoken',
     'drf_yasg',
     'core',
 ]
@@ -119,7 +120,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ),
 }
 
@@ -139,4 +140,18 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=365 * 100),  # 100 anos
     'ROTATE_REFRESH_TOKENS': False,  # Impede a rotação do refresh token
     'BLACKLIST_AFTER_ROTATION': False,  # Impede a revogação do refresh token
+}
+
+AUTH_USER_MODEL = "core.CustomUser"
+
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,  # 🔹 Remove autenticação por sessão (login do Django Admin)
+    'SECURITY_DEFINITIONS': {  # 🔹 Define o uso de JWT
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+            'description': 'Token JWT no formato: Bearer {token}'
+        }
+    }
 }

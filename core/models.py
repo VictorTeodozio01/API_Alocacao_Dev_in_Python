@@ -1,4 +1,19 @@
 from django.db import models
+from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib.auth.models import AbstractUser, Group, Permission
+
+class CustomUser(AbstractUser):
+    fixed_token = models.CharField(max_length=512, blank=True, null=True, unique=True)
+
+    groups = models.ManyToManyField(Group, related_name="customuser_groups", blank=True)
+    user_permissions = models.ManyToManyField(Permission, related_name="customuser_permissions", blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.fixed_token:  # Se ainda não tem um token fixo
+            refresh = RefreshToken.for_user(self)
+            self.fixed_token = str(refresh.access_token)
+        super().save(*args, **kwargs)
+
 
 class Tecnologia(models.Model):
     nome = models.CharField(max_length=100)
